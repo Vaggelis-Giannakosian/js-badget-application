@@ -27,7 +27,6 @@ var controller = (function(budgetCtrl,UICtrl){
       //TODO: add the new item to the user interface
       //TODO: calculate the budget
       //TODO: display the budget on the UI
-      console.log('yessss');
    }
 
 
