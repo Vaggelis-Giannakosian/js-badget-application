@@ -1,17 +1,11 @@
 //Data Controller module
 var budgetController = (function(){
-    var x = 23;
-
-    var add = function(a){
-        return x+a;
-    }
 
 
-    return {
-        publicTest: function(b){
-            return add(b);
-        }
-    }
+    //some code
+
+
+
 })();
 
 //Ui Controller module
@@ -23,15 +17,29 @@ var UIController = (function(){
 
 
 
-//Controlller module
+//Global App Controlller module
 var controller = (function(budgetCtrl,UICtrl){
 
-    var z = budgetCtrl.publicTest(15);
-    //some code
-    return {
-        anotherPublic: function () {
-            console.log(z);
-        }
-    }
+
+   var ctrlAddItem = function(){
+      //TODO: get the input data
+      //TODO: add the item to the budget controller
+      //TODO: add the new item to the user interface
+      //TODO: calculate the budget
+      //TODO: display the budget on the UI
+      console.log('yessss');
+   }
+
+
+   document.querySelector('.add__btn').addEventListener('click',ctrlAddItem);
+
+
+   document.addEventListener('keypress',function(e){
+      if(e.key === 'Enter'){
+         ctrlAddItem();
+      }
+   });
+
+
 
 })(budgetController,UIController);
