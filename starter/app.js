@@ -10,19 +10,42 @@ var budgetController = (function(){
 
 //Ui Controller module
 var UIController = (function(){
+      var DOMstring = {
+         inputType: '.add__type',
+         inputDescription: '.add__description',
+         inputValue: '.add__value',
+         inputButton: '.add__btn',
+      };
 
-    //some code
 
+   return {
+      getInput: function(){
+         return{
+            //will be either inc or exp
+         type : document.querySelector(DOMstring.inputType).value,
+         description : document.querySelector(DOMstring.inputDescription).value,
+         value : document.querySelector(DOMstring.inputValue).value
+         };
+      },
+      getDOMstrings: function(){
+         return DOMstring;
+      },
+
+
+
+   };
 })();
 
 
 
 //Global App Controlller module
 var controller = (function(budgetCtrl,UICtrl){
-
+   var DOM = UICtrl.getDOMstrings();
 
    var ctrlAddItem = function(){
-      //TODO: get the input data
+      //get the input data
+      var input = UICtrl.getInput();
+console.log(input);
       //TODO: add the item to the budget controller
       //TODO: add the new item to the user interface
       //TODO: calculate the budget
@@ -30,7 +53,7 @@ var controller = (function(budgetCtrl,UICtrl){
    }
 
 
-   document.querySelector('.add__btn').addEventListener('click',ctrlAddItem);
+   document.querySelector(DOM.inputButton).addEventListener('click',ctrlAddItem);
 
 
    document.addEventListener('keypress',function(e){
