@@ -1,5 +1,7 @@
 /**
  * Data Controller module
+ *
+ *
  */
 
 var budgetController = (function(){
@@ -60,6 +62,8 @@ var budgetController = (function(){
 
 /**
  * Ui Controller module
+ *
+ *
  */
 var UIController = (function(){
       var DOMstring = {
@@ -109,6 +113,14 @@ var UIController = (function(){
 
       },
 
+      clearFields: function(){
+          var fields,fieldsArr;
+          fields = document.querySelectorAll(DOMstring.inputDescription + ',' + DOMstring.inputValue);
+          fieldsArr = Array.prototype.slice.call(fields);
+          fieldsArr.forEach(function(current, index, array){
+              current.value='';
+          });
+    },
 
 
    };
@@ -119,6 +131,8 @@ var UIController = (function(){
 
 /**
  * Global App Controlller module
+ *
+ *
  */
 var controller = (function(budgetCtrl,UICtrl){
 
@@ -147,9 +161,9 @@ var controller = (function(budgetCtrl,UICtrl){
 
       //3.  add the new item to the user interface
        UICtrl.addListItem(newItem,input.type);
-
+       UICtrl.clearFields();
       //4. calculate the budget
-       
+
 
 
       //TODO: display the budget on the UI
