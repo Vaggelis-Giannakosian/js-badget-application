@@ -149,7 +149,6 @@ var UIController = (function(){
          expesesPercLabel: '.item__percentage',
          monthLabel: 'budget__title--month',
       };
-
       var formatNumber =  function(number,type){
         var numSplit,int, dec;
         number = Math.abs(number);
@@ -166,7 +165,7 @@ var UIController = (function(){
 
         return (type === 'exp' ? "- " : "+ ")+int+'.'+dec;
     };
-    var nodeListForEach = function (list, callback) {
+      var nodeListForEach = function (list, callback) {
         for (var i = 0; i < list.length; i++) {
             callback(list[i], i);
         }
@@ -257,8 +256,8 @@ var UIController = (function(){
          var fields = document.querySelectorAll(DOMstring.inputDescription + ',' +
              DOMstring.inputValue + ',' +
              DOMstring.inputType);
-          nodeListForEach(fields,function(cur,ind){
-              cur.classList.toggle('red-focus');
+          nodeListForEach(fields,function(cur){
+              cur.classList.toggle('red-focus')
           });
 
 
